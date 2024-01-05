@@ -6,7 +6,8 @@ class SignUpPage extends StatelessWidget {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  SignUpPage({super.key, required});
+  final void Function()? onTap;
+  SignUpPage({super.key, required this.onTap});
   void _signUp(){}
   @override
   Widget build(BuildContext context) {
@@ -44,9 +45,7 @@ class SignUpPage extends StatelessWidget {
             children: [
               Text('Already have account? ', style: TextStyle(color: Theme.of(context).colorScheme.primary),),
               GestureDetector(
-                onTap: (){
-                  Navigator.pushNamed(context, '/log_in');
-                },
+                onTap: onTap,
                 child: Text('Log In', style: TextStyle(color: Theme.of(context).colorScheme.primary, fontWeight: FontWeight.bold),),
               )
             ],

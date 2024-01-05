@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatelessWidget {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  LoginPage({super.key});
+
+  final void Function()? onTap;
+  LoginPage({super.key, required this.onTap});
 
   void _login() {}
   @override
@@ -62,9 +64,7 @@ class LoginPage extends StatelessWidget {
                       TextStyle(color: Theme.of(context).colorScheme.primary),
                 ),
                 GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/sign_up');
-                  },
+                  onTap: onTap,
                   child: Text(
                     'Sign up now',
                     style: TextStyle(
